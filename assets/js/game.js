@@ -37,6 +37,12 @@ promptFight = promptFight.toLowerCase();
         return false;
       };
     
+  // keep track of who goes first
+  var isPlayerTurn = true;
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
+
 
 //fight function
 var fight = function(enemy) { 
@@ -94,6 +100,8 @@ var fight = function(enemy) {
         window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
       }    
     }
+    // switch turn order for next round
+    isPlayerTurn = !isPlayerTurn;
   }
   };  
     // function to start a new game
